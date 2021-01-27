@@ -13,28 +13,28 @@
 	}
 }
 
-.App-items{
-  background-color: #282c34;
+.App-items {
+	background-color: #282c34;
 	display: flex;
-	flex-direction: column;	
+	flex-direction: column;
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
 	color: white;
 }
 
-.App-header {	
-  min-height: 10vh;
-  align-items: center;
+.App-header {
+	min-height: 5vh;
+	align-items: center;
 }
 
-.App-content{  
-  min-height: 70vh;
-  align-items: center;
+.App-content {
+	min-height: 65vh;
+	align-items: center;
 }
 
 .App-footer {
-  min-height: 10vh;
-  align-items: flex-end;
+	min-height: 5vh;
+	align-items: flex-end;
 }
 
 .powered-by {
