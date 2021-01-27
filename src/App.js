@@ -1,16 +1,11 @@
-import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Home from './Home';
+import useToggle from './Toggle';
 
 function App() {
-	const [ primaryMarkets, setPrimaryMarkets ] = useState(false);
-
-	const togglePrimaryMarkets = () => {
-		console.log('togglePrimaryMarkets called.');
-		setPrimaryMarkets(!primaryMarkets);
-	};
-
+	const [ isOn, toggleIsOn ] = useToggle();
+	const primaryTitle = (isOn ? 'Hide primary market' : 'Show primary market');
 	return (
 		<div className="App">
 			<header className="App-items App-header">
@@ -18,15 +13,19 @@ function App() {
 			</header>
 
 			<div className="App-items App-content">
-				<input
-					type="checkbox"
-					id="primaryMarkets"
-					onChange={togglePrimaryMarkets}
-				/>
-				<label for="primaryMarkets">AAA</label>
-				<Home primaryMarkets={primaryMarkets} />
+				<span>
+					<input
+						type="checkbox"
+						id="primaryMarkets"
+						onClick={toggleIsOn}
+					/>
+					<label htmlFor="primaryMarkets">
+						{primaryTitle}
+					</label>
+				</span>
+				<Home primaryMarkets={isOn} />
 			</div>
-			
+
 			<footer className="App-items App-footer">
 				<p className="powered-by">
 					<img src={logo} className="App-logo" alt="logo" />
