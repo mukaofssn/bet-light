@@ -1,5 +1,4 @@
-import Events from './Events';
-import './Home.css';
+import Event from './Event';
 import useFetch from './useFetch';
 
 const Football = () => {
@@ -8,19 +7,23 @@ const Football = () => {
 		true,
 		JSON.stringify({
 			type: 'getLiveEvents',
-			primaryMarkets: false
+			primaryMarkets: true
 		})
 	);
 
 	return (
-		<div className="home">
-			<div className="encloseEvents">
-				{error && <h2>{error}</h2>}
-				{isPending && <h2>Loading...</h2>}
-				{liveEvents && (
-					<Events events={liveEvents} />
-				)}
-			</div>
+		<div>
+			{error && <h2>{error}</h2>}
+			{isPending && <h3>Loading...</h3>}
+			{liveEvents &&
+				liveEvents.map((event, id) => {
+					return (
+						<Event
+							event={event}
+							key={id}
+						/>
+					);
+				})}
 		</div>
 	);
 };

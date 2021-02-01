@@ -1,9 +1,7 @@
-import './Home.css';
-
 const Home = () => {
 	return (
 		<div>
-			Welcome to BetLight
+			Welcome to BetLight. Please select one of the above options.
 		</div>
 	);
 };

@@ -6,24 +6,26 @@ const useFetch = (type, trigger, request) => {
 	const [ error, setError ] = useState(null);
 
 	useEffect(
-		() => {			
-			if (!trigger || trigger === undefined) return { data: null, isPending: false, error: null };
+		() => {
+			if (!trigger || trigger === undefined)
+				return { data: null, isPending: false, error: null };
 			let ws = new WebSocket('ws://localhost:8889');
 			ws.onmessage = (e) => {
-				const result = JSON.parse(e.data);
+				const result = JSON.parse(e.data);	
+				// console.log(result.data);			
 				if (result.type === type) {
 					console.log(result.data);
 					setData(result.data);
 					setIsPending(false);
 					setError(false);
-				}
+				}				
 			};
-			ws.onopen = () => {                
-                console.log(type, trigger, request);
+			ws.onopen = () => {
+				// console.log(type, trigger, request);
 				ws.send(request);
 			};
 			ws.onclose = () => {
-				console.log('ws closed');
+				// console.log('ws closed');
 			};
 
 			ws.onerror = (err) => {
