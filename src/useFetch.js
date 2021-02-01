@@ -12,7 +12,7 @@ const useFetch = (type, trigger, request) => {
 			ws.onmessage = (e) => {
 				const result = JSON.parse(e.data);
 				if (result.type === type) {
-					console.log(result);
+					console.log(result.data);
 					setData(result.data);
 					setIsPending(false);
 					setError(false);
