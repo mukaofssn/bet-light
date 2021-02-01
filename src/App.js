@@ -1,12 +1,10 @@
 import './App.css';
 import Home from './Home';
-// import useToggle from './Toggle';
 import Navbar from './Navbar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Football from './Football';
 
-function App() {
-	// const [ isOn, toggleIsOn ] = useToggle();
+function App() {	
 	return (
 		<div className="App">
 			<header className="App-items App-header">
