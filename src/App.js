@@ -1,36 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
 import Home from './Home';
-import useToggle from './Toggle';
+// import useToggle from './Toggle';
+import Navbar from './Navbar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Football from './Football';
 
 function App() {
-	const [ isOn, toggleIsOn ] = useToggle();
-	const primaryTitle = (isOn ? 'Hide primary market' : 'Show primary market');
+	// const [ isOn, toggleIsOn ] = useToggle();
 	return (
 		<div className="App">
 			<header className="App-items App-header">
 				<h3>BetLight</h3>
 			</header>
 
-			<div className="App-items App-content">
-				<span>
-					<input
-						type="checkbox"
-						id="primaryMarkets"
-						onClick={toggleIsOn}
-					/>
-					<label htmlFor="primaryMarkets">
-						{primaryTitle}
-					</label>
-				</span>
-				<Home primaryMarkets={isOn} />
-			</div>
-
-			<footer className="App-items App-footer">
-				<p className="powered-by">
-					<img src={logo} className="App-logo" alt="logo" />
-				</p>
-			</footer>
+			<Router>
+				<Navbar />
+				<div className="App-items App-content">
+					<Switch>
+						<Route exact path="/football">
+							<Football />
+						</Route>
+						<Route exact path="/">
+							<Home />
+						</Route>
+					</Switch>
+				</div>
+			</Router>			
 		</div>
 	);
 }

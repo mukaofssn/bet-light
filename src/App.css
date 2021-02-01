@@ -1,3 +1,4 @@
+/* App page and contents */
 .App {
 	text-align: center;
 }
@@ -14,39 +15,31 @@
 }
 
 .App-items {
-	background-color: #132C6C;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	font-size: calc(10px + 2vmin);
-	color: white;
+	color: black;
 }
 
 .App-header {
-	min-height: 5vh;
+	min-height: 3vh;
 	align-items: center;
+	background-color: #132c6c;
+	color: white;
 }
 
 .App-content {
-	min-height: 65vh;
+	min-height: 50vh;
 	align-items: center;
 }
 
 .App-content span {
-	padding-right: 5 px;
+	padding-right: 5px;
 }
 
 .App-content label {
 	font-size: 20px;
-}
-
-.App-footer {
-	min-height: 5vh;
-	align-items: flex-end;
-}
-
-.powered-by {
-	text-align: right;
 }
 
 .App-link {
@@ -60,4 +53,29 @@
 	to {
 		transform: rotate(360deg);
 	}
+}
+
+/* Nav bar */
+.navbar {
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	max-width: fit-content;
+	margin: 0 auto;
+	border-bottom: 1px solid rgb(56, 55, 55);
+}
+.navbar a {
+	color: rgb(56, 55, 55);
+	font-size: 20px;
+}
+.navbar .links {
+	margin-left: auto;
+}
+.navbar a {
+	margin-left: 16px;
+	text-decoration: none;
+	padding: 6px;
+}
+.navbar a:hover {
+	color: black;
 }
